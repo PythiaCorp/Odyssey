@@ -8,22 +8,22 @@
 
 # BrandFullNameInternal is used for some registry and file system values
 # instead of BrandFullName and typically should not be modified.
-!define BrandFullNameInternal "Mozilla Developer Preview"
-!define BrandFullName         "Mozilla Developer Preview"
-!define CompanyName           "mozilla.org"
-!define URLInfoAbout          "https://www.mozilla.org"
-!define HelpLink              "https://support.mozilla.org"
+!define BrandFullNameInternal "Pythia Odyssey Preview"
+!define BrandFullName         "Pythia Odyssey Preview"
+!define CompanyName           "Pythia Corporation"
+!define URLInfoAbout          "https://docs.pythia.cf/odyssey/about"
+!define HelpLink              "https://support.pythia.cf"
 
-!define URLStubDownloadX86 "https://download.mozilla.org/?os=win&lang=${AB_CD}&product=firefox-latest"
-!define URLStubDownloadAMD64 "https://download.mozilla.org/?os=win64&lang=${AB_CD}&product=firefox-latest"
-!define URLStubDownloadAArch64 "https://download.mozilla.org/?os=win64-aarch64&lang=${AB_CD}&product=firefox-latest"
-!define URLManualDownload "https://www.mozilla.org/${AB_CD}/firefox/installer-help/?channel=release&installer_lang=${AB_CD}"
-!define URLSystemRequirements "https://www.mozilla.org/firefox/system-requirements/"
+!define URLStubDownloadX86 "https://download.pythia.cf/pub/odyssey/latest/windows_${AB_CD}_win32.exe"
+!define URLStubDownloadAMD64 "https://download.pythia.cf/pub/odyssey/latest/windows_${AB_CD}_win64.exe"
+!define URLStubDownloadAArch64 "https://download.pythia.cf/pub/odyssey/latest/windows_${AB_CD}_win_aarch64.exe"
+!define URLManualDownload "https://download.pythia.cf/pub/odyssey/latest/windows_${AB_CD}_win32.exe"
+!define URLSystemRequirements "https://docs.pythia.cf/odyssey/system-requirements/"
 !define Channel "unofficial"
 
 # The installer's certificate name and issuer expected by the stub installer
-!define CertNameDownload   "Mozilla Corporation"
-!define CertIssuerDownload "DigiCert SHA2 Assured ID Code Signing CA"
+!define CertNameDownload   "Pythia Corporation"
+!define CertIssuerDownload "Cloudflare"
 
 # Dialog units are used so the UI displays correctly with the system's DPI
 # settings.

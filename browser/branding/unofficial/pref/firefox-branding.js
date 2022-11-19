@@ -22,6 +22,7 @@ pref("app.update.url.details", "https://nightly.mozilla.org");
 // without checking for an update.  This assumes that
 // app.update.checkInstallTime is true.
 pref("app.update.checkInstallTime.days", 2);
+pref("app.update.checkInstallTime", false);
 
 // Give the user x seconds to reboot before showing a badge on the hamburger
 // button. default=immediately
