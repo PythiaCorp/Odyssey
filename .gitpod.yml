@@ -1,0 +1,9 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: Firefox Fetcher # runs upon startup
+    command: cd /workspace/Odyssey && sudo cp $PWD/Scripts/git-cinnabar $PWD/Scripts/git-remote-hg /usr/bin && sudo chmod +x /usr/bin/git-cinnabar /usr/bin/git-remote-hg && git fetch mozilla
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+#ports:
+#  - port: 3000
+#    onOpen: open-preview

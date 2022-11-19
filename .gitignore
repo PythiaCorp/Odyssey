@@ -200,3 +200,5 @@ tools/esmify/jscodeshift
 tools/esmify/jscodeshift.cmd
 tools/esmify/jscodeshift.ps1
 tools/esmify/package-lock.json
+
+.git/
