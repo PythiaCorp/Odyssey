@@ -1,4 +1,4 @@
-import { RendererToMainChannel } from '@wexond/rpc-electron';
+import { RendererToMainChannel } from '@pythiacorporation/rpc-electron';
 
 export interface ExtensionMainService {
   uninstall(id: string): void;

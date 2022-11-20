@@ -1,52 +1,46 @@
 {
-  "appId": "org.wexond.wexond",
-  "productName": "Wexond",
-  "nsis": {
-    "include": "static/installer.nsh"
-  },
-  "electronVersion": "13.1.4",
-  "generateUpdatesFilesForAllChannels": true,
-  "asar": true,
-  "directories": {
-    "output": "dist",
-    "buildResources": "static/icons"
-  },
-  "files": ["build/**/*", "package.json", "static/**/*"],
-  "publish": "github",
-  "linux": {
-    "category": "Network",
-    "target": [
+  "appId":"org.pythia.odyssey-nightly","productName":"Odyssey Nightly",
+  "nsis":{
+    "include":"static/installer.nsh"
+    },
+    "electronVersion":"13.1.4",
+    "generateUpdatesFilesForAllChannels":true,
+    "asar":true,
+    "directories": {
+      "output":"dist",
+      "buildResources":"static/nightly-icons"
+      },
+      "files": ["build/**/*","package.json","static/**/*"],
+      "publish":"github",
+      "linux":{
+        "category":"Network",
+        "target": [{
+          "target":"AppImage",
+          "arch":["x64"]
+        },
       {
-        "target": "AppImage",
-        "arch": ["x64"]
+        "target":"deb",
+        "arch":["x64"]
+      }
+      ]
+    },
+  "win":{
+    "target":[{
+      "target":"nsis-web",
+      "arch":["x64","ia32"]
       },
       {
-        "target": "deb",
-        "arch": ["x64"]
-      }
-    ]
+        "target":"zip",
+        "arch":["x64","ia32"]}]
+        },
+
+  "mac":{
+    "category":"public.app-category.navigation"
   },
-  "win": {
-    "target": [
-      {
-        "target": "nsis-web",
-        "arch": ["x64", "ia32"]
-      },
-      {
-        "target": "zip",
-        "arch": ["x64", "ia32"]
-      }
-    ]
-  },
-  "mac": {
-    "category": "public.app-category.navigation"
-  },
-  "fileAssociations": [
-    {
-      "name": "Document",
-      "description": "Wexond",
-      "role": "Viewer",
-      "ext": "html"
-    }
-  ]
+    "fileAssociations":[{
+      "name":"Document",
+      "description":"Odyssey",
+      "role":"Viewer",
+      "ext":"html"
+    }]
 }

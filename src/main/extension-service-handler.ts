@@ -1,4 +1,4 @@
-import { RpcMainEvent, RpcMainHandler } from '@wexond/rpc-electron';
+import { RpcMainEvent, RpcMainHandler } from '@pythiacorporation/rpc-electron';
 import { session, webContents } from 'electron';
 import {
   extensionMainChannel,

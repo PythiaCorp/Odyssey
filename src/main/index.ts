@@ -1,5 +1,5 @@
 import { ipcMain, app, webContents } from 'electron';
-import { setIpcMain } from '@wexond/rpc-electron';
+import { setIpcMain } from '@pythiacorporation/rpc-electron';
 setIpcMain(ipcMain);
 
 require('@electron/remote/main').initialize();
