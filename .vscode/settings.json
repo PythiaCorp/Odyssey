@@ -1,29 +1,9 @@
 {
-  "typescript.tsdk": "node_modules\\typescript\\lib",
-  "eslint.packageManager": "yarn",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "editor.formatOnType": true,
-  "typescript.format.enable": true
+	// VSCODE SETTINGS
+	"explorer.compactFolders": false,
+	"explorer.confirmDragAndDrop": true,
+	"workbench.activityBar.visible": true,
+	"workbench.colorTheme": "Solarized Dark",
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.productIconTheme": "material-product-icons"
 }
