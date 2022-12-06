@@ -388,43 +388,47 @@ nsresult HTMLEditor::SetInlinePropertiesAsSubAction(
 Result<bool, nsresult>
 HTMLEditor::AutoInlineStyleSetter::ElementIsGoodContainerForTheStyle(
     HTMLEditor& aHTMLEditor, Element& aElement) const {
-  // First check for <b>, <i>, etc.
-  if (aElement.IsHTMLElement(&HTMLPropertyRef()) && !aElement.GetAttrCount() &&
-      !mAttribute) {
-    return true;
-  }
-
-  // Special cases for various equivalencies: <strong>, <em>, <s>
-  if (!aElement.GetAttrCount() &&
-      ((&HTMLPropertyRef() == nsGkAtoms::b &&
-        aElement.IsHTMLElement(nsGkAtoms::strong)) ||
-       (&HTMLPropertyRef() == nsGkAtoms::i &&
-        aElement.IsHTMLElement(nsGkAtoms::em)) ||
-       (&HTMLPropertyRef() == nsGkAtoms::strike &&
-        aElement.IsHTMLElement(nsGkAtoms::s)))) {
-    return true;
-  }
-
-  // Now look for things like <font>
-  if (mAttribute) {
-    nsString attrValue;
+  // If the editor is in the CSS mode and the style can be specified with CSS,
+  // we should not use existing HTML element as a new container.
+  const bool isCSSEditable = IsCSSEditable(aElement);
+  if (!aHTMLEditor.IsCSSEnabled() || !isCSSEditable) {
+    // First check for <b>, <i>, etc.
     if (aElement.IsHTMLElement(&HTMLPropertyRef()) &&
-        !HTMLEditUtils::ElementHasAttributeExcept(aElement, *mAttribute) &&
-        aElement.GetAttr(kNameSpaceID_None, mAttribute, attrValue) &&
-        attrValue.Equals(mAttributeValue, nsCaseInsensitiveStringComparator)) {
-      // This is not quite correct, because it excludes cases like
-      // <font face=000> being the same as <font face=#000000>.
-      // Property-specific handling is needed (bug 760211).
+        !aElement.GetAttrCount() && !mAttribute) {
       return true;
+    }
+
+    // Now look for things like <font>
+    if (mAttribute) {
+      nsString attrValue;
+      if (aElement.IsHTMLElement(&HTMLPropertyRef()) &&
+          !HTMLEditUtils::ElementHasAttributeExcept(aElement, *mAttribute) &&
+          aElement.GetAttr(kNameSpaceID_None, mAttribute, attrValue) &&
+          attrValue.Equals(mAttributeValue,
+                           nsCaseInsensitiveStringComparator)) {
+        // This is not quite correct, because it excludes cases like
+        // <font face=000> being the same as <font face=#000000>.
+        // Property-specific handling is needed (bug 760211).
+        return true;
+      }
+    }
+
+    if (!isCSSEditable) {
+      return false;
     }
   }
 
   // No luck so far.  Now we check for a <span> with a single style=""
   // attribute that sets only the style we're looking for, if this type of
   // style supports it
-  if (!IsCSSEditable(aElement) || !aElement.IsHTMLElement(nsGkAtoms::span) ||
-      aElement.GetAttrCount() != 1 ||
-      !aElement.HasAttr(kNameSpaceID_None, nsGkAtoms::style)) {
+  if (!aElement.IsHTMLElement(nsGkAtoms::span) ||
+      !aElement.HasAttr(kNameSpaceID_None, nsGkAtoms::style) ||
+      HTMLEditUtils::ElementHasAttributeExcept(aElement, *nsGkAtoms::style)) {
+    return false;
+  }
+
+  nsStyledElement* styledElement = nsStyledElement::FromNode(&aElement);
+  if (MOZ_UNLIKELY(!styledElement)) {
     return false;
   }
 
@@ -443,24 +447,18 @@ HTMLEditor::AutoInlineStyleSetter::ElementIsGoodContainerForTheStyle(
   if (MOZ_UNLIKELY(!styledNewSpanElement)) {
     return false;
   }
-  if (IsCSSEditable(*styledNewSpanElement)) {
-    // MOZ_KnownLive(*styledNewSpanElement): It's newSpanElement whose type is
-    // RefPtr.
-    Result<size_t, nsresult> result = CSSEditUtils::SetCSSEquivalentToStyle(
-        WithTransaction::No, aHTMLEditor, MOZ_KnownLive(*styledNewSpanElement),
-        *this, &mAttributeValue);
-    if (MOZ_UNLIKELY(result.isErr())) {
-      // The call shouldn't return destroyed error because it must be
-      // impossible to run script with modifying the new orphan node.
-      MOZ_ASSERT_UNREACHABLE("How did you destroy this editor?");
-      if (NS_WARN_IF(result.inspectErr() == NS_ERROR_EDITOR_DESTROYED)) {
-        return Err(NS_ERROR_EDITOR_DESTROYED);
-      }
-      return false;
+  // MOZ_KnownLive(*styledNewSpanElement): It's newSpanElement whose type is
+  // RefPtr.
+  Result<size_t, nsresult> result = CSSEditUtils::SetCSSEquivalentToStyle(
+      WithTransaction::No, aHTMLEditor, MOZ_KnownLive(*styledNewSpanElement),
+      *this, &mAttributeValue);
+  if (MOZ_UNLIKELY(result.isErr())) {
+    // The call shouldn't return destroyed error because it must be
+    // impossible to run script with modifying the new orphan node.
+    MOZ_ASSERT_UNREACHABLE("How did you destroy this editor?");
+    if (NS_WARN_IF(result.inspectErr() == NS_ERROR_EDITOR_DESTROYED)) {
+      return Err(NS_ERROR_EDITOR_DESTROYED);
     }
-  }
-  nsStyledElement* styledElement = nsStyledElement::FromNode(&aElement);
-  if (MOZ_UNLIKELY(!styledElement)) {
     return false;
   }
   return CSSEditUtils::DoStyledElementsHaveSameStyle(*styledNewSpanElement,
@@ -801,6 +799,15 @@ Result<CaretPoint, nsresult> HTMLEditor::AutoInlineStyleSetter::ApplyStyle(
   };
 
   if (ShouldUseCSS()) {
+    // We need special handlings for text-decoration.
+    if (IsStyleOfTextDecoration(IgnoreSElement::No)) {
+      Result<CaretPoint, nsresult> result =
+          ApplyCSSTextDecoration(aHTMLEditor, aContent);
+      NS_WARNING_ASSERTION(
+          result.isOk(),
+          "AutoInlineStyleSetter::ApplyCSSTextDecoration() failed");
+      return result;
+    }
     RefPtr<Element> spanElement;
     EditorDOMPoint pointToPutCaret;
     // We only add style="" to <span>s with no attributes (bug 746515).  If we
@@ -877,6 +884,126 @@ Result<CaretPoint, nsresult> HTMLEditor::AutoInlineStyleSetter::ApplyStyle(
       wrapWithNewElementToFormatResult.unwrap().UnwrapCaretPoint());
 }
 
+Result<CaretPoint, nsresult>
+HTMLEditor::AutoInlineStyleSetter::ApplyCSSTextDecoration(
+    HTMLEditor& aHTMLEditor, nsIContent& aContent) const {
+  MOZ_ASSERT(IsStyleOfTextDecoration(IgnoreSElement::No));
+
+  EditorDOMPoint pointToPutCaret;
+  RefPtr<nsStyledElement> styledElement = nsStyledElement::FromNode(aContent);
+  nsAutoString textDecorationValue;
+  if (styledElement) {
+    nsresult rv = CSSEditUtils::GetSpecifiedProperty(
+        *styledElement, *nsGkAtoms::text_decoration, textDecorationValue);
+    if (NS_FAILED(rv)) {
+      NS_WARNING(
+          "CSSEditUtils::GetSpecifiedProperty(nsGkAtoms::text_decoration) "
+          "failed");
+      return Err(rv);
+    }
+  }
+  nsAutoString newTextDecorationValue;
+  if (&HTMLPropertyRef() == nsGkAtoms::u) {
+    newTextDecorationValue.AssignLiteral(u"underline");
+  } else if (&HTMLPropertyRef() == nsGkAtoms::s ||
+             &HTMLPropertyRef() == nsGkAtoms::strike) {
+    newTextDecorationValue.AssignLiteral(u"line-through");
+  } else {
+    MOZ_ASSERT_UNREACHABLE(
+        "Was new value added in "
+        "IsStyleOfTextDecoration(IgnoreSElement::No))?");
+  }
+  if (styledElement && IsCSSEditable(*styledElement) &&
+      (
+          // If the element has `text-decoration` by default, use it.
+          (styledElement->IsAnyOfHTMLElements(nsGkAtoms::u, nsGkAtoms::s,
+                                              nsGkAtoms::strike, nsGkAtoms::ins,
+                                              nsGkAtoms::del)) ||
+          // If the element has a text-decoration rule, use it.
+          !textDecorationValue.IsEmpty())) {
+    // However, if the element is an element to style the text-decoration,
+    // replace it with new <span>.
+    if (styledElement && styledElement->IsAnyOfHTMLElements(
+                             nsGkAtoms::u, nsGkAtoms::s, nsGkAtoms::strike)) {
+      Result<CreateElementResult, nsresult> replaceResult =
+          aHTMLEditor.ReplaceContainerAndCloneAttributesWithTransaction(
+              *styledElement, *nsGkAtoms::span);
+      if (MOZ_UNLIKELY(replaceResult.isErr())) {
+        NS_WARNING(
+            "HTMLEditor::ReplaceContainerAndCloneAttributesWithTransaction() "
+            "failed");
+        return replaceResult.propagateErr();
+      }
+      CreateElementResult unwrappedReplaceResult = replaceResult.unwrap();
+      MOZ_ASSERT(unwrappedReplaceResult.GetNewNode());
+      unwrappedReplaceResult.MoveCaretPointTo(
+          pointToPutCaret, {SuggestCaret::OnlyIfHasSuggestion});
+      // The new <span> needs to specify the original element's text-decoration
+      // style unless it's specified explicitly.
+      if (textDecorationValue.IsEmpty()) {
+        if (!newTextDecorationValue.IsEmpty()) {
+          newTextDecorationValue.Append(HTMLEditUtils::kSpace);
+        }
+        if (styledElement->IsHTMLElement(nsGkAtoms::u)) {
+          newTextDecorationValue.AppendLiteral(u"underline");
+        } else {
+          newTextDecorationValue.AppendLiteral(u"line-through");
+        }
+      }
+      styledElement =
+          nsStyledElement::FromNode(unwrappedReplaceResult.GetNewNode());
+      if (NS_WARN_IF(!styledElement)) {
+        return CaretPoint(pointToPutCaret);
+      }
+    }
+    // If the element has default style, we need to keep it after specifying
+    // text-decoration.
+    else if (textDecorationValue.IsEmpty() &&
+             styledElement->IsAnyOfHTMLElements(nsGkAtoms::u, nsGkAtoms::ins)) {
+      if (!newTextDecorationValue.IsEmpty()) {
+        newTextDecorationValue.Append(HTMLEditUtils::kSpace);
+      }
+      newTextDecorationValue.AppendLiteral(u"underline");
+    } else if (textDecorationValue.IsEmpty() &&
+               styledElement->IsAnyOfHTMLElements(
+                   nsGkAtoms::s, nsGkAtoms::strike, nsGkAtoms::del)) {
+      if (!newTextDecorationValue.IsEmpty()) {
+        newTextDecorationValue.Append(HTMLEditUtils::kSpace);
+      }
+      newTextDecorationValue.AppendLiteral(u"line-through");
+    }
+  }
+  // Otherwise, use new <span> element.
+  else {
+    Result<CreateElementResult, nsresult> wrapInSpanElementResult =
+        aHTMLEditor.InsertContainerWithTransaction(aContent, *nsGkAtoms::span);
+    if (MOZ_UNLIKELY(wrapInSpanElementResult.isErr())) {
+      NS_WARNING(
+          "HTMLEditor::InsertContainerWithTransaction(nsGkAtoms::span) failed");
+      return wrapInSpanElementResult.propagateErr();
+    }
+    CreateElementResult unwrappedWrapInSpanElementResult =
+        wrapInSpanElementResult.unwrap();
+    MOZ_ASSERT(unwrappedWrapInSpanElementResult.GetNewNode());
+    unwrappedWrapInSpanElementResult.MoveCaretPointTo(
+        pointToPutCaret, {SuggestCaret::OnlyIfHasSuggestion});
+    styledElement = nsStyledElement::FromNode(
+        unwrappedWrapInSpanElementResult.GetNewNode());
+    if (NS_WARN_IF(!styledElement)) {
+      return CaretPoint(pointToPutCaret);
+    }
+  }
+
+  nsresult rv = CSSEditUtils::SetCSSPropertyWithTransaction(
+      aHTMLEditor, *styledElement, *nsGkAtoms::text_decoration,
+      newTextDecorationValue);
+  if (NS_FAILED(rv)) {
+    NS_WARNING("CSSEditUtils::SetCSSPropertyWithTransaction() failed");
+    return Err(rv);
+  }
+  return CaretPoint(pointToPutCaret);
+}
+
 Result<CaretPoint, nsresult> HTMLEditor::AutoInlineStyleSetter::
     ApplyStyleToNodeOrChildrenAndRemoveNestedSameStyle(
         HTMLEditor& aHTMLEditor, nsIContent& aContent) const {
@@ -897,6 +1024,20 @@ Result<CaretPoint, nsresult> HTMLEditor::AutoInlineStyleSetter::
     }
     if (removeStyleResult.inspect().IsSet()) {
       pointToPutCaret = removeStyleResult.unwrap();
+    }
+    if (nsStaticAtom* similarElementNameAtom = GetSimilarElementNameAtom()) {
+      Result<EditorDOMPoint, nsresult> removeStyleResult =
+          aHTMLEditor.RemoveStyleInside(
+              MOZ_KnownLive(*aContent.AsElement()),
+              EditorInlineStyle(*similarElementNameAtom),
+              SpecifiedStyle::Preserve);
+      if (MOZ_UNLIKELY(removeStyleResult.isErr())) {
+        NS_WARNING("HTMLEditor::RemoveStyleInside() failed");
+        return removeStyleResult.propagateErr();
+      }
+      if (removeStyleResult.inspect().IsSet()) {
+        pointToPutCaret = removeStyleResult.unwrap();
+      }
     }
   }
 
@@ -2187,20 +2328,11 @@ NS_IMETHODIMP HTMLEditor::RemoveInlineProperty(const nsAString& aProperty,
 void HTMLEditor::AppendInlineStyleAndRelatedStyle(
     const EditorInlineStyle& aStyleToRemove,
     nsTArray<EditorInlineStyle>& aStylesToRemove) const {
-  if (aStyleToRemove.mHTMLProperty == nsGkAtoms::b) {
-    EditorInlineStyle strong(*nsGkAtoms::strong);
-    if (!aStylesToRemove.Contains(strong)) {
-      aStylesToRemove.AppendElement(std::move(strong));
-    }
-  } else if (aStyleToRemove.mHTMLProperty == nsGkAtoms::i) {
-    EditorInlineStyle em(*nsGkAtoms::em);
-    if (!aStylesToRemove.Contains(em)) {
-      aStylesToRemove.AppendElement(std::move(em));
-    }
-  } else if (aStyleToRemove.mHTMLProperty == nsGkAtoms::strike) {
-    EditorInlineStyle s(*nsGkAtoms::s);
-    if (!aStylesToRemove.Contains(s)) {
-      aStylesToRemove.AppendElement(std::move(s));
+  if (nsStaticAtom* similarElementName =
+          aStyleToRemove.GetSimilarElementNameAtom()) {
+    EditorInlineStyle anotherStyle(*similarElementName);
+    if (!aStylesToRemove.Contains(anotherStyle)) {
+      aStylesToRemove.AppendElement(std::move(anotherStyle));
     }
   } else if (aStyleToRemove.mHTMLProperty == nsGkAtoms::font) {
     if (aStyleToRemove.mAttribute == nsGkAtoms::size) {

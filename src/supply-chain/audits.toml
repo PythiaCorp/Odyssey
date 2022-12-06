@@ -1,6 +1,12 @@
 
 # cargo-vet audits file
 
+[[audits.aa-stroke]]
+who = "Lee Salzman <lsalzman@mozilla.com>"
+criteria = "safe-to-deploy"
+version = "0.1.0"
+notes = "Written and maintained by Gfx team at Mozilla."
+
 [[audits.android_logger]]
 who = "Jan-Erik Rediger <jrediger@mozilla.com>"
 criteria = "safe-to-deploy"
@@ -107,6 +113,11 @@ who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 version = "0.59.2"
 notes = "I'm the primary author and maintainer of the crate."
+
+[[audits.bindgen]]
+who = "Emilio Cobos Álvarez <emilio@crisal.io>"
+criteria = "safe-to-deploy"
+delta = "0.59.2 -> 0.63.0"
 
 [[audits.bit-set]]
 who = "Aria Beingessner <a.beingessner@gmail.com>"
@@ -910,6 +921,16 @@ who = "Josh Stone <jistone@redhat.com>"
 criteria = "safe-to-deploy"
 version = "0.2.15"
 notes = "All code written or reviewed by Josh Stone."
+
+[[audits.ohttp]]
+who = "Dana Keeler <dkeeler@mozilla.com>"
+criteria = "safe-to-deploy"
+version = "0.2.2"
+notes = """
+Developed and maintained  by Mozilla.
+When configured to use NSS (as we do), this crate uses unsafe blocks to call
+NSS functions. These calls have been audited.
+"""
 
 [[audits.once_cell]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -1743,4 +1764,3 @@ who = "Henri Sivonen <hsivonen@hsivonen.fi>"
 criteria = "safe-to-deploy"
 version = "0.2.0"
 notes = "I, Henri Sivonen, wrote this crate myself for Gecko even though it's published on crates.io."
-

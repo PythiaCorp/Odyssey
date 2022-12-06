@@ -1,0 +1,7 @@
+image: 
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Boot
+    command: sudo apt update && sudo apt upgrade -y && .'/workspace/Odyssey/src/mach' bootstrap
+

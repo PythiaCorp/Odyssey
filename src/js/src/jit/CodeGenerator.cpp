@@ -11053,6 +11053,21 @@ void JitRuntime::generateDoubleToInt32ValueStub(MacroAssembler& masm) {
   masm.abiret();
 }
 
+void CodeGenerator::visitLinearizeForCharAccess(LLinearizeForCharAccess* lir) {
+  Register str = ToRegister(lir->str());
+  Register index = ToRegister(lir->index());
+  Register output = ToRegister(lir->output());
+
+  using Fn = JSLinearString* (*)(JSContext*, JSString*);
+  auto* ool = oolCallVM<Fn, jit::LinearizeForCharAccess>(
+      lir, ArgList(str), StoreRegisterTo(output));
+
+  masm.branchIfNotCanLoadStringChar(str, index, output, ool->entry());
+
+  masm.movePtr(str, output);
+  masm.bind(ool->rejoin());
+}
+
 void CodeGenerator::visitCharCodeAt(LCharCodeAt* lir) {
   Register str = ToRegister(lir->str());
   Register index = ToRegister(lir->index());
@@ -11065,6 +11080,69 @@ void CodeGenerator::visitCharCodeAt(LCharCodeAt* lir) {
                                                       StoreRegisterTo(output));
   masm.loadStringChar(str, index, output, temp0, temp1, ool->entry());
   masm.bind(ool->rejoin());
+}
+
+void CodeGenerator::visitCharCodeAtMaybeOutOfBounds(
+    LCharCodeAtMaybeOutOfBounds* lir) {
+  Register str = ToRegister(lir->str());
+  Register index = ToRegister(lir->index());
+  ValueOperand output = ToOutValue(lir);
+  Register temp0 = ToRegister(lir->temp0());
+  Register temp1 = ToRegister(lir->temp1());
+
+  using Fn = bool (*)(JSContext*, HandleString, int32_t, uint32_t*);
+  auto* ool = oolCallVM<Fn, jit::CharCodeAt>(
+      lir, ArgList(str, index), StoreRegisterTo(output.scratchReg()));
+
+  // Return NaN for out-of-bounds access.
+  Label done;
+  masm.moveValue(JS::NaNValue(), output);
+
+  masm.spectreBoundsCheck32(index, Address(str, JSString::offsetOfLength()),
+                            temp0, &done);
+
+  masm.loadStringChar(str, index, output.scratchReg(), temp0, temp1,
+                      ool->entry());
+  masm.bind(ool->rejoin());
+
+  masm.tagValue(JSVAL_TYPE_INT32, output.scratchReg(), output);
+
+  masm.bind(&done);
+}
+
+void CodeGenerator::visitCharAtMaybeOutOfBounds(LCharAtMaybeOutOfBounds* lir) {
+  Register str = ToRegister(lir->str());
+  Register index = ToRegister(lir->index());
+  Register output = ToRegister(lir->output());
+  Register temp0 = ToRegister(lir->temp0());
+  Register temp1 = ToRegister(lir->temp1());
+
+  using Fn1 = bool (*)(JSContext*, HandleString, int32_t, uint32_t*);
+  auto* oolLoadChar = oolCallVM<Fn1, jit::CharCodeAt>(lir, ArgList(str, index),
+                                                      StoreRegisterTo(output));
+
+  using Fn2 = JSLinearString* (*)(JSContext*, int32_t);
+  auto* oolFromCharCode = oolCallVM<Fn2, jit::StringFromCharCode>(
+      lir, ArgList(output), StoreRegisterTo(output));
+
+  // Return the empty string for out-of-bounds access.
+  const JSAtomState& names = gen->runtime->names();
+  masm.movePtr(ImmGCPtr(names.empty), output);
+
+  masm.spectreBoundsCheck32(index, Address(str, JSString::offsetOfLength()),
+                            temp0, oolFromCharCode->rejoin());
+
+  masm.loadStringChar(str, index, output, temp0, temp1, oolLoadChar->entry());
+  masm.bind(oolLoadChar->rejoin());
+
+  // OOL path if code >= UNIT_STATIC_LIMIT.
+  masm.boundsCheck32PowerOfTwo(output, StaticStrings::UNIT_STATIC_LIMIT,
+                               oolFromCharCode->entry());
+
+  masm.movePtr(ImmPtr(&gen->runtime->staticStrings().unitStaticTable), temp0);
+  masm.loadPtr(BaseIndex(temp0, output, ScalePointer), output);
+
+  masm.bind(oolFromCharCode->rejoin());
 }
 
 void CodeGenerator::visitFromCharCode(LFromCharCode* lir) {
@@ -13596,9 +13674,17 @@ void CodeGenerator::visitAddAndStoreSlot(LAddAndStoreSlot* ins) {
   const Register maybeTemp = ToTempRegisterOrInvalid(ins->temp0());
 
   Shape* shape = ins->mir()->shape();
-  masm.storeObjShape(shape, obj, [](MacroAssembler& masm, const Address& addr) {
-    EmitPreBarrier(masm, addr, MIRType::Shape);
-  });
+  // NOTE: we specifically elide an EmitPreBarrier for this shape change
+  // because we know it's redundant. If we are here, we must have been
+  // preceded by a MGuardShape which holds a reference to the old shape. The
+  // one exception to this would be if we determined we could elide the
+  // MGuardShape via the EliminateRedundantShapeGuards pass. However, in that
+  // case we only elided it because we saw an MAddAndStoreSlot or similar
+  // instruction which must hold a reference to the old shape. Thus, the
+  // reference inside this object to the shape cannot be the last remaining
+  // reference, and we do not need to have a pre barrier to remove it.
+  masm.storeObjShape(shape, obj,
+                     [](MacroAssembler& masm, const Address& addr) {});
 
   // Perform the store. No pre-barrier required since this is a new
   // initialization.

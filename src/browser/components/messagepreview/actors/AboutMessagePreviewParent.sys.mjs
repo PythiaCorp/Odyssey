@@ -10,14 +10,28 @@ const lazy = {};
 
 XPCOMUtils.defineLazyModuleGetters(lazy, {
   InfoBar: "resource://activity-stream/lib/InfoBar.jsm",
+  Spotlight: "resource://activity-stream/lib/Spotlight.jsm",
+  SpecialMessageActions:
+    "resource://messaging-system/lib/SpecialMessageActions.jsm",
 });
+
+function dispatchCFRAction({ type, data }, browser) {
+  if (type === "USER_ACTION") {
+    lazy.SpecialMessageActions.handleAction(data, browser);
+  }
+}
 
 export class AboutMessagePreviewParent extends JSWindowActorParent {
   showInfoBar(message) {
     const browser = this.browsingContext.topChromeWindow.gBrowser
       .selectedBrowser;
+    lazy.InfoBar.showInfoBarMessage(browser, message, dispatchCFRAction);
+  }
 
-    lazy.InfoBar.showInfoBarMessage(browser, message, () => {});
+  showSpotlight(message) {
+    const browser = this.browsingContext.topChromeWindow.gBrowser
+      .selectedBrowser;
+    lazy.Spotlight.showSpotlightDialog(browser, message, () => {});
   }
 
   async showMessage(data) {
@@ -45,7 +59,9 @@ export class AboutMessagePreviewParent extends JSWindowActorParent {
       case "infobar":
         this.showInfoBar(message);
         return;
-
+      case "spotlight":
+        this.showSpotlight(message);
+        return;
       default:
         console.error(`Unsupported message template ${message.template}`);
     }
