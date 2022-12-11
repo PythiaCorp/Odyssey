@@ -402,37 +402,6 @@ const AVAILABLE_UA_OVERRIDES = [
   },
   {
     /*
-     * Bug 1646791 - bancosantander.es - Re-add UA override.
-     * Bug 1665129 - *.gruposantander.es - Add wildcard domains.
-     * WebCompat issue #33462 - https://webcompat.com/issues/33462
-     * SuMo request - https://support.mozilla.org/es/questions/1291085
-     *
-     * santanderbank expects UA to have 'like Gecko', otherwise it runs
-     * xmlDoc.onload whose support has been dropped. It results in missing labels in forms
-     * and some other issues.  Adding 'like Gecko' fixes those issues.
-     */
-    id: "bug1646791",
-    platform: "all",
-    domain: "santanderbank.com",
-    bug: "1646791",
-    config: {
-      matches: [
-        "*://*.bancosantander.es/*",
-        "*://*.gruposantander.es/*",
-        "*://*.santander.co.uk/*",
-      ],
-      uaTransformer: originalUA => {
-        // The first line related to Firefox 100 is for Bug 1743445.
-        // [TODO]: Remove when bug 1743429 gets backed out.
-        return UAHelpers.capVersionTo99(originalUA).replace(
-          "Gecko",
-          "like Gecko"
-        );
-      },
-    },
-  },
-  {
-    /*
      * Bug 1651292 - UA override for www.jp.square-enix.com
      * Webcompat issue #53018 - https://webcompat.com/issues/53018
      *
