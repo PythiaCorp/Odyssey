@@ -3,5 +3,5 @@ image:
 
 tasks:
   - name: Boot
-    command: sudo apt update && sudo apt upgrade -y && .'/workspace/Odyssey/src/mach' bootstrap
+    command: sudo apt update && sudo apt upgrade -y 
 
