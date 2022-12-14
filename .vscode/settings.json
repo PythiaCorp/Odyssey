@@ -1,9 +1,10 @@
 {
 	// VSCODE SETTINGS
 	"explorer.compactFolders": false,
-	"explorer.confirmDragAndDrop": true,
+	"explorer.confirmDragAndDrop": false,
 	"workbench.activityBar.visible": true,
 	"workbench.colorTheme": "PowerShell ISE",
 	"workbench.iconTheme": "vscode-icons",
-	"workbench.productIconTheme": "material-product-icons"
+	"workbench.productIconTheme": "material-product-icons",
+	"git.ignoreLimitWarning": true
 }
