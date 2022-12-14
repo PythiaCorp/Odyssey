@@ -1,7 +1,6 @@
-image: 
-  file: .gitpod.Dockerfile
-
+image: gitpod/workspace-full
 tasks:
   - name: Boot
     command: sudo apt update && sudo apt upgrade -y 
-
+  - name: Setup
+    command: sudo apt update && sudo apt upgrade -y && cd /workspace/Odyssey/src && ./mach bootstrap

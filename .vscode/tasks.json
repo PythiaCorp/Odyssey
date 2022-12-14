@@ -1,0 +1,13 @@
+{
+    "version":"2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "sudo apt update && sudo apt upgrade -y && cd /workspace/Odyssey/src && make --print-directory --print-data-base --debug",
+            "args": [
+                "--print-directory", "--print-data-base", "--debug=VERBOSE"],
+            "problemMatcher": []
+        }
+    ]
+}
