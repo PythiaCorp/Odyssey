@@ -6,5 +6,26 @@
 	"workbench.colorTheme": "PowerShell ISE",
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.productIconTheme": "material-product-icons",
-	"git.ignoreLimitWarning": true
+	"git.ignoreLimitWarning": true,
+	"typescript.tsdk": "src\\node_modules\\typescript\\lib",
+	"eslint.packageManager": "npm",
+	"[javascript]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode",
+	  "editor.formatOnSave": true
+	},
+	"[javascriptreact]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode",
+	  "editor.formatOnSave": true
+	},
+	"[typescript]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode",
+	  "editor.formatOnSave": true
+	},
+	"[typescriptreact]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode",
+	  "editor.formatOnSave": true
+	},
+	"editor.codeActionsOnSave": {
+	  "source.fixAll.eslint": true
+	}
 }

@@ -4,7 +4,7 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "sudo apt update && sudo apt upgrade -y && cd /workspace/Odyssey/src && make --print-directory --print-data-base --debug",
+            "command": "sudo apt update && sudo apt upgrade -y && cd /workspace/Odyssey/src && ",
             "args": [
                 "--print-directory", "--print-data-base", "--debug=VERBOSE"],
             "problemMatcher": []

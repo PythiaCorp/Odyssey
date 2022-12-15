@@ -1,8 +1,0 @@
-#!/bin/bash
-
-SRCDIR="/workspace/Odyssey"
-
-# Switch to the dev directory
-
-cd $SRCDIR/src/
-./mach bootstrap 

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="dark light" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgba(0, 0, 0, 0.54);
+      }
+
+      .main {
+        margin: 0 auto;
+        width: calc(100% - 32px);
+        max-width: 512px;
+        margin: 14vh auto 0;
+      }
+
+      #main-title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+
+      #main-error-code {
+        font-size: 12px;
+      }
+
+      #main-description {
+        margin-bottom: 16px;
+        line-height: 1.5rem;
+      }
+
+      ul {
+        margin-top: 0;
+      }
+
+      #main-icon {
+        background-repeat: no-repeat;
+        width: 72px;
+        height: 72px;
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div id="main-icon"></div>
+      <div id="main-title"></div>
+      <div id="main-description"></div>
+      <div id="main-error-code"></div>
+    </div>
+
+    <script>
+      document.body.style.backgroundColor =
+        window.theme['pages.backgroundColor'];
+
+      const url = window.errorURL;
+
+      document.title = url;
+
+      const errorCodeEl = document.getElementById('main-error-code');
+      const titleEl = document.getElementById('main-title');
+      const descriptionEl = document.getElementById('main-description');
+      const iconEl = document.getElementById('main-icon');
+
+      if (window.theme['pages.lightForeground']) {
+        document.body.style.color = 'rgba(255, 255, 255, 0.54)';
+        iconEl.style.filter = 'invert(1)';
+      }
+
+      if (window.location.href.split('/').length === 4) {
+        errorCode = window.location.href.split('/')[3];
+      }
+
+      const pageUnresolvedIcon =
+        'data:image/png;base64,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';
+
+      const info = {
+        '-6': {
+          title: 'Your file was not found',
+          description: `It may have been moved or deleted.`,
+          code: 'ERR_FILE_NOT_FOUND',
+        },
+        '-10': {
+          title: 'This site can’t be reached',
+          description: `The webpage at <b>${url}</b> might be temporarily down or it may have moved permanently to a new web address.`,
+          code: 'ERR_ACCESS_DENIED',
+        },
+        '-105': {
+          title: 'This site can’t be reached',
+          description: `<b>${url}</b>’s server IP address could not be found.`,
+          code: 'ERR_NAME_NOT_RESOLVED',
+        },
+        '-106': {
+          title: 'No internet',
+          description: `Try: <ul><li>Checking the network cables, modem, and router</li><li>Reconnecting to Wi-Fi</li></ul>`,
+          code: 'ERR_INTERNET_DISCONNECTED',
+        },
+        '-108': {
+          title: 'This site can’t be reached',
+          description: `The webpage at <b>${url}</b> might be temporarily down or it may have moved permanently to a new web address.`,
+          code: 'ERR_ADDRESS_INVALID',
+        },
+        '-109': {
+          title: 'This site can’t be reached',
+          description: `<b>${url}</b> is unreachable.`,
+          code: 'ERR_ADDRESS_UNREACHABLE',
+        },
+        '-300': {
+          title: 'This site can’t be reached',
+          description: `The webpage at <b>${url}</b> might be temporarily down or it may have moved permanently to a new web address.`,
+          code: 'ERR_INVALID_URL',
+        },
+        '-379': {
+          title: 'This site can’t be reached',
+          description: `The webpage at <b>${url}</b> might be temporarily down or it may have moved permanently to a new web address.`,
+          code: 'ERR_HTTP_RESPONSE_CODE_FAILURE',
+        },
+        '-451': {
+          title: 'This site can’t be reached',
+          description: "The webpage at <b>${url}</b> cannot be reached for legal reasons. The authorities have dissallowed any end user to view this webpage.",
+          code: 'ERR_LEGAL_NO_VIEWING',
+        },
+      };
+
+      const { title, description, code, icon } = info[errorCode];
+      titleEl.textContent = title;
+      descriptionEl.innerHTML = description;
+      errorCodeEl.textContent = code;
+      iconEl.style.backgroundImage = `url(${pageUnresolvedIcon})`;
+    </script>
+  </body>
+</html>
