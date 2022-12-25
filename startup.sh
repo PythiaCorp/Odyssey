@@ -5,6 +5,8 @@ if [[ "$OSTYPE" == "win32"* ]]; then
     return 1
 fi
 
+WORKSPACEFOLDER="/workspace/Odyssey/"
+
 sudo apt update
 sudo apt upgrade -y
 
@@ -13,3 +15,8 @@ sudo apt install libasound2-dev -y
 sudo apt install libpulse-dev -y
 cargo install cbindgen
 sudo apt install libpango1.0-dev -y
+
+
+#Git Cinnabar (Required to build for some damn reason)
+sudo cp $WORKPACEFOLDER/scripts/git-cinnabar $WORKSPACEFOLDER/scripts/git-remote-hg /usr/bin
+sudo chmod +x /usr/bin/git-cinnabar /usr/bin/git-remote-hg
