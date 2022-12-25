@@ -3,7 +3,7 @@
 	"explorer.compactFolders": false,
 	"explorer.confirmDragAndDrop": false,
 	"workbench.activityBar.visible": true,
-	"workbench.colorTheme": "PowerShell ISE",
+	"workbench.colorTheme": "Palenight Theme",
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.productIconTheme": "material-product-icons",
 	"git.ignoreLimitWarning": true,
