@@ -1,0 +1,5 @@
+# THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
+
+DEFINES += -DNDEBUG=1 -DTRIMMED=1
+DIRS := interfaces/base interfaces/html interfaces/events interfaces/sidebar interfaces/xul interfaces/security interfaces/storage interfaces/geolocation interfaces/notification interfaces/push interfaces/payments abort animation base bindings battery browser-element cache canvas webgpu chrome-webidl clients commandhandler credentialmanagement crypto debugger encoding events fetch file filehandle filesystem flex fs gamepad geolocation grid html jsurl mathml media midi notification offline power push quota security storage svg locales locks network permission plugins/base prototype indexedDB system ipc workers audiochannel broadcastchannel messagechannel promise smil streams url webauthn webidl webshare webtransport xml xslt xul manifest vr u2f console performance webbrowserpersist xhr worklet script payments websocket serializers serviceworkers simpledb reporting localstorage prio l10n origin-trials webscheduling tests imptests plugins/test
+JAR_MANIFEST := /workspace/Odyssey/src/dom/jar.mn

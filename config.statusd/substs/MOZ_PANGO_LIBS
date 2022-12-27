@@ -1,0 +1,6 @@
+[
+    "-L/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-lpango-1.0",
+    "-lgobject-2.0",
+    "-lglib-2.0"
+]

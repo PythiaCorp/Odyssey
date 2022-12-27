@@ -1,0 +1,4 @@
+[
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/freetype2"
+]

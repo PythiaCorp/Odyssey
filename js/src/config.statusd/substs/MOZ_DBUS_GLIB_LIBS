@@ -1,0 +1,7 @@
+[
+    "-L/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-ldbus-glib-1",
+    "-ldbus-1",
+    "-lgobject-2.0",
+    "-lglib-2.0"
+]

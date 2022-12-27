@@ -1,0 +1,21 @@
+[
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/gtk-3.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/pango-1.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/glib-2.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu/glib-2.0/include",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/cairo",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/pixman-1",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/freetype2",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/libpng12",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/gdk-pixbuf-2.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/gio-unix-2.0/",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/harfbuzz",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/atk-1.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/at-spi2-atk/2.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/at-spi-2.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/dbus-1.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu/dbus-1.0/include",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/gtk-3.0/unix-print",
+    "-pthread"
+]

@@ -1,0 +1,7 @@
+[
+    "/home/gitpod/.mozbuild/clang/bin/clang",
+    "-Qunused-arguments",
+    "-std=gnu99",
+    "--target=wasm32-wasi",
+    "--sysroot=/home/gitpod/.mozbuild/sysroot-wasm32-wasi"
+]

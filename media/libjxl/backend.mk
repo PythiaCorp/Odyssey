@@ -1,0 +1,97 @@
+# THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
+
+DEFINES += -DNDEBUG=1 -DTRIMMED=1 -DJPEGXL_ENABLE_BOXES=0 -DJPEGXL_ENABLE_TRANSCODE_JPEG=0
+LOCAL_INCLUDES += -I$(srcdir)/include
+LOCAL_INCLUDES += -I$(topsrcdir)/third_party/jpeg-xl
+LOCAL_INCLUDES += -I$(topsrcdir)/third_party/jpeg-xl/lib/include
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/ac_strategy.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/alpha.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/ans_common.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/aux_out.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/base/cache_aligned.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/base/data_parallel.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/base/padded_bytes.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/base/random.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/blending.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/chroma_from_luma.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/coeff_order.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/color_encoding_internal.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/color_management.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/compressed_dc.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/convolve_separable5.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/convolve_separable7.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/convolve_slow.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/convolve_symmetric3.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/convolve_symmetric5.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dct_scales.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_ans.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_cache.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_context_map.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_external_image.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_frame.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_group.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_group_border.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_huffman.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_modular.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_noise.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_patch_dictionary.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/dec_xyb.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/decode.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/enc_bit_writer.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/entropy_coder.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/epf.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/fast_dct.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/fields.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/frame_header.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/gauss_blur.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/headers.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/huffman_table.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/icc_codec.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/icc_codec_common.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/image.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/image_bundle.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/image_metadata.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/loop_filter.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/luminance.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/memory_manager_internal.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/modular/encoding/dec_ma.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/modular/encoding/encoding.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/modular/modular_image.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/modular/transform/rct.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/modular/transform/squeeze.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/modular/transform/transform.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/opsin_params.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/passes_state.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/quant_weights.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/quantizer.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/low_memory_render_pipeline.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/render_pipeline.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/simple_render_pipeline.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_blending.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_chroma_upsampling.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_epf.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_from_linear.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_gaborish.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_noise.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_patches.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_splines.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_spot.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_to_linear.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_tone_mapping.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_upsampling.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_write.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_xyb.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/render_pipeline/stage_ycbcr.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/splines.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/jxl/toc.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/threads/thread_parallel_runner.cc
+CPPSRCS += $(topsrcdir)/third_party/jpeg-xl/lib/threads/thread_parallel_runner_internal.cc
+COMPUTED_LDFLAGS += -lpthread -fuse-ld=lld -Wl,-rpath-link,/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 -Wl,-z,noexecstack -Wl,-z,text -Wl,-z,relro -Wl,-z,nocopyreloc -Wl,-Bsymbolic-functions -fstack-protector-strong -fstack-clash-protection -Wl,-rpath-link,/workspace/Odyssey/dist/bin -Wl,-rpath-link,/usr/local/lib
+LIBRARY_NAME := media_libjxl
+FORCE_STATIC_LIB := 1
+REAL_LIBRARY := libmedia_libjxl.a
+DEFINES += -DMOZ_HAS_MOZGLUE -DMOZILLA_INTERNAL_API -DIMPL_LIBXUL -DSTATIC_EXPORTABLE_JS_API
+COMPUTED_CFLAGS += -I/workspace/Odyssey/dist/system_wrappers -include /workspace/Odyssey/src/config/gcc_hidden.h -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fstack-clash-protection -DNDEBUG=1 -DTRIMMED=1 -DJPEGXL_ENABLE_BOXES=0 -DJPEGXL_ENABLE_TRANSCODE_JPEG=0 -DMOZ_HAS_MOZGLUE -DMOZILLA_INTERNAL_API -DIMPL_LIBXUL -DSTATIC_EXPORTABLE_JS_API -I/workspace/Odyssey/src/media/libjxl -I/workspace/Odyssey/media/libjxl -I/workspace/Odyssey/src/media/libjxl/include -I/workspace/Odyssey/src/third_party/jpeg-xl -I/workspace/Odyssey/src/third_party/jpeg-xl/lib/include -I/workspace/Odyssey/dist/include -I/workspace/Odyssey/dist/include/nspr -I/workspace/Odyssey/dist/include/nss -include /workspace/Odyssey/mozilla-config.h -DMOZILLA_CLIENT -fPIC -fno-math-errno -pthread -pipe -gdwarf-4 -O2 -fno-omit-frame-pointer -funwind-tables -Wall -Wbitfield-enum-conversion -Wempty-body -Wformat-type-confusion -Wignored-qualifiers -Wpointer-arith -Wshadow-field-in-constructor-modified -Wsign-compare -Wtype-limits -Wno-error=tautological-type-limit-compare -Wunreachable-code -Wunreachable-code-return -Wunused-but-set-parameter -Wclass-varargs -Wfloat-overflow-conversion -Wfloat-zero-conversion -Wloop-analysis -Wno-range-loop-analysis -Wenum-compare-conditional -Wenum-float-conversion -Wstring-conversion -Wno-error=deprecated-declarations -Wno-error=array-bounds -Wno-error=free-nonheap-object -Wno-error=atomic-alignment -Wno-error=deprecated-builtins -Wformat -Wformat-security -Werror=implicit-function-declaration -Wno-psabi -Wthread-safety -Wno-unknown-warning-option -fno-strict-aliasing -ffp-contract=off
+COMPUTED_CXXFLAGS += -I/workspace/Odyssey/dist/stl_wrappers -I/workspace/Odyssey/dist/system_wrappers -include /workspace/Odyssey/src/config/gcc_hidden.h -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fstack-clash-protection -DNDEBUG=1 -DTRIMMED=1 -DJPEGXL_ENABLE_BOXES=0 -DJPEGXL_ENABLE_TRANSCODE_JPEG=0 -DMOZ_HAS_MOZGLUE -DMOZILLA_INTERNAL_API -DIMPL_LIBXUL -DSTATIC_EXPORTABLE_JS_API -I/workspace/Odyssey/src/media/libjxl -I/workspace/Odyssey/media/libjxl -I/workspace/Odyssey/src/media/libjxl/include -I/workspace/Odyssey/src/third_party/jpeg-xl -I/workspace/Odyssey/src/third_party/jpeg-xl/lib/include -I/workspace/Odyssey/dist/include -I/workspace/Odyssey/dist/include/nspr -I/workspace/Odyssey/dist/include/nss -DMOZILLA_CLIENT -include /workspace/Odyssey/mozilla-config.h -fno-sized-deallocation -fno-aligned-new -fno-exceptions -fPIC -fno-rtti -fno-exceptions -fno-math-errno -pthread -pipe -gdwarf-4 -O2 -fno-omit-frame-pointer -funwind-tables -Wall -Wbitfield-enum-conversion -Wdeprecated-this-capture -Wempty-body -Wformat-type-confusion -Wignored-qualifiers -Wpointer-arith -Wshadow-field-in-constructor-modified -Wsign-compare -Wtype-limits -Wno-error=tautological-type-limit-compare -Wunreachable-code -Wunreachable-code-return -Wunused-but-set-parameter -Wno-invalid-offsetof -Wclass-varargs -Wempty-init-stmt -Wfloat-overflow-conversion -Wfloat-zero-conversion -Wloop-analysis -Wno-range-loop-analysis -Wc++2a-compat -Wenum-compare-conditional -Wenum-float-conversion -Wno-ambiguous-reversed-operator -Wno-error=deprecated -Wno-error=deprecated-anon-enum-enum-conversion -Wno-error=deprecated-enum-enum-conversion -Wno-error=deprecated-pragma -Wno-error=deprecated-this-capture -Wcomma -Wimplicit-fallthrough -Wstring-conversion -Wno-inline-new-delete -Wno-error=deprecated-declarations -Wno-error=array-bounds -Wno-error=free-nonheap-object -Wno-error=atomic-alignment -Wno-error=deprecated-builtins -Wformat -Wformat-security -Wno-psabi -Wthread-safety -Wno-unknown-warning-option -std=c++11 -fno-strict-aliasing -ffp-contract=off
+COMPUTED_CXX_LDFLAGS += -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fstack-clash-protection -fno-sized-deallocation -fno-aligned-new -fno-exceptions -fPIC -fno-rtti -fno-exceptions -fno-math-errno -pthread -pipe -gdwarf-4 -O2 -fno-omit-frame-pointer -funwind-tables
+COMPUTED_C_LDFLAGS += -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fstack-clash-protection -fPIC -fno-math-errno -pthread -pipe -gdwarf-4 -O2 -fno-omit-frame-pointer -funwind-tables

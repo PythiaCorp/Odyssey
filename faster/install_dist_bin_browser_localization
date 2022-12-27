@@ -1,0 +1,13 @@
+5
+5en-US/branding/**/*.ftl/workspace/Odyssey/src/browser/branding/unofficial/locales/en-US/**/*.ftlen-US/branding
+5en-US/browser/**/*.ftl/workspace/Odyssey/src/browser/locales/en-US/browser/**/*.ftlen-US/browser
+5en-US/devtools/client/*.ftl/workspace/Odyssey/src/devtools/client/locales/en-US/*.ftlen-US/devtools/client
+5en-US/devtools/shared/*.ftl/workspace/Odyssey/src/devtools/shared/locales/en-US/*.ftlen-US/devtools/shared
+5en-US/devtools/startup/*.ftl/workspace/Odyssey/src/devtools/startup/locales/en-US/*.ftlen-US/devtools/startup
+1en-US/locales-preview/migrationWizard.ftl/workspace/Odyssey/src/browser/locales-preview/migrationWizard.ftl
+1en-US/preview/firefoxSuggest.ftl/workspace/Odyssey/src/browser/components/urlbar/content/firefoxSuggest.ftl
+1en-US/preview/identityCredentialNotification.ftl/workspace/Odyssey/src/browser/components/credentialmanager/identityCredentialNotification.ftl
+1en-US/preview/interventions.ftl/workspace/Odyssey/src/browser/components/urlbar/content/interventions.ftl
+1en-US/preview/ion.ftl/workspace/Odyssey/src/browser/components/ion/content/ion.ftl
+1en-US/preview/protections.ftl/workspace/Odyssey/src/browser/components/protections/content/protections.ftl
+1en-US/preview/protectionsPanel.ftl/workspace/Odyssey/src/browser/base/content/protectionsPanel.ftl

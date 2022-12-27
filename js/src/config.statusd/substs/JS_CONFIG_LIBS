@@ -1,0 +1,1 @@
+"-L/workspace/Odyssey/dist/bin -lnspr4 -lplc4 -lplds4 -lm -ldl "

@@ -1,0 +1,19 @@
+#define MOZ_UNIFIED_BUILD
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/agc2/rnn_vad/features_extraction.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/agc2/rnn_vad/features_extraction.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/agc2/rnn_vad/features_extraction.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/agc2/rnn_vad/rnn.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/agc2/rnn_vad/rnn.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/agc2/rnn_vad/rnn.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif

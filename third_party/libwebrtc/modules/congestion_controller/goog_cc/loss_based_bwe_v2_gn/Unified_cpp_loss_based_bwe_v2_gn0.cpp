@@ -1,0 +1,10 @@
+#define MOZ_UNIFIED_BUILD
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/loss_based_bwe_v2.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/loss_based_bwe_v2.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/loss_based_bwe_v2.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif

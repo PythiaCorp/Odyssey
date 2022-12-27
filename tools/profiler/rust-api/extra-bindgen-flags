@@ -1,0 +1,1 @@
+-x c++ -fno-sized-deallocation -fno-aligned-new -DTRACING=1 -DIMPL_LIBXUL -DMOZILLA_INTERNAL_API -DRUST_BINDGEN -DOS_POSIX=1 -DOS_LINUX=1 --sysroot /home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu -Qunused-arguments -std=gnu++17 -I/workspace/Odyssey/dist/include/nspr

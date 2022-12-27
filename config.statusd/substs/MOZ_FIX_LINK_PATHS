@@ -1,0 +1,4 @@
+[
+    "-Wl,-rpath-link,/workspace/Odyssey/dist/bin",
+    "-Wl,-rpath-link,/usr/local/lib"
+]

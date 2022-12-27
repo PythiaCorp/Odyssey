@@ -1,0 +1,6 @@
+[
+    "-L/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-lgthread-2.0",
+    "-pthread",
+    "-lglib-2.0"
+]

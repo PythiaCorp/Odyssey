@@ -1,0 +1,7 @@
+[
+    "-L/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-lfreetype",
+    "-L/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-lfontconfig",
+    "-lfreetype"
+]

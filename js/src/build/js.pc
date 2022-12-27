@@ -1,0 +1,14 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: SpiderMonkey 110.0a1
+Description: The Mozilla library for JavaScript
+Version: 110.0a1
+
+Libs: -L${libdir} -lmozjs
+# Use -isystem for includes rather than -I, to mark them as "system headers"
+# that don't generate warning diagnostics. For justification, see
+# https://bugzilla.mozilla.org/show_bug.cgi?id=1539036
+Cflags: -isystem ${includedir}/mozjs

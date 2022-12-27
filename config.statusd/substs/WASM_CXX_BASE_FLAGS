@@ -1,0 +1,5 @@
+[
+    "-Qunused-arguments",
+    "-std=gnu++17",
+    "--target=wasm32-wasi"
+]

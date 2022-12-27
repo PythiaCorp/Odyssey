@@ -1,0 +1,1 @@
+"/home/gitpod/.mozbuild/clang/bin/clang++ --sysroot /home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu -Qunused-arguments -std=gnu++17"

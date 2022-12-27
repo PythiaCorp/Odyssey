@@ -11,6 +11,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # JIC Installs
+sudo apt-get install curl python3 python3-dev python3-pip -y
 sudo apt install libasound2-dev -y
 sudo apt install libpulse-dev -y
 cargo install cbindgen

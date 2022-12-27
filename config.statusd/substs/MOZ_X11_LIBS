@@ -1,0 +1,15 @@
+[
+    "-L/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-lxcb-shm",
+    "-lX11-xcb",
+    "-lX11",
+    "-lxcb",
+    "-lXext",
+    "-lXrandr",
+    "-lXcomposite",
+    "-lXcursor",
+    "-lXdamage",
+    "-lXfixes",
+    "-lXi",
+    "-lXtst"
+]

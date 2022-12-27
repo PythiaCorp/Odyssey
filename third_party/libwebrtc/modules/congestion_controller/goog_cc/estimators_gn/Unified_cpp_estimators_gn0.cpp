@@ -1,0 +1,55 @@
+#define MOZ_UNIFIED_BUILD
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/acknowledged_bitrate_estimator.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/acknowledged_bitrate_estimator.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/acknowledged_bitrate_estimator.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/acknowledged_bitrate_estimator_interface.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/acknowledged_bitrate_estimator_interface.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/acknowledged_bitrate_estimator_interface.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/bitrate_estimator.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/bitrate_estimator.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/bitrate_estimator.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/probe_bitrate_estimator.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/probe_bitrate_estimator.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/probe_bitrate_estimator.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/robust_throughput_estimator.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/robust_throughput_estimator.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/robust_throughput_estimator.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/trendline_estimator.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/trendline_estimator.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/congestion_controller/goog_cc/trendline_estimator.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif

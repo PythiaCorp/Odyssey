@@ -1,0 +1,8 @@
+[
+    "/home/gitpod/.mozbuild/clang/bin/clang",
+    "-E",
+    "--sysroot",
+    "/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu",
+    "-Qunused-arguments",
+    "-std=gnu99"
+]

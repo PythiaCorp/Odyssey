@@ -1,0 +1,4 @@
+[
+    "-fprofile-use=/workspace/Odyssey/instrumented/merged.profdata",
+    "-Wno-error=backend-plugin"
+]

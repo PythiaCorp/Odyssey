@@ -1,0 +1,5 @@
+[
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/glib-2.0",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu/glib-2.0/include",
+    "-I/home/gitpod/.mozbuild/sysroot-x86_64-linux-gnu/usr/include"
+]

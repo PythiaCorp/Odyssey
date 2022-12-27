@@ -1,0 +1,5 @@
+[
+    "-DMOZILLA_CLIENT",
+    "-include",
+    "/workspace/Odyssey/js/src/js-confdefs.h"
+]

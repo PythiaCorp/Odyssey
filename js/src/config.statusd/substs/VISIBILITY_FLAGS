@@ -1,0 +1,5 @@
+[
+    "-I/workspace/Odyssey/dist/system_wrappers",
+    "-include",
+    "/workspace/Odyssey/src/config/gcc_hidden.h"
+]

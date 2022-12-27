@@ -1,0 +1,6 @@
+5
+8chrome.manifest"manifest en-US.manifest\n"
+5chrome/content/*/workspace/Odyssey/src/browser/extensions/formautofill/content/*chrome/content/
+5chrome/content/skin/*/workspace/Odyssey/src/browser/extensions/formautofill/skin/shared/*chrome/content/skin/
+8en-US.manifest"locale formautofill en-US en-US/locale/en-US/\n"
+1en-US/locale/en-US/formautofill.properties/workspace/Odyssey/src/browser/extensions/formautofill/locales/en-US/formautofill.properties

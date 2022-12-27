@@ -1,0 +1,28 @@
+#define MOZ_UNIFIED_BUILD
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/audio_buffer.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/audio_buffer.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/audio_buffer.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/splitting_filter.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/splitting_filter.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/splitting_filter.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif
+#include "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/three_band_filter_bank.cc"
+#ifdef PL_ARENA_CONST_ALIGN_MASK
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/three_band_filter_bank.cc uses PL_ARENA_CONST_ALIGN_MASK, so it cannot be built in unified mode."
+#undef PL_ARENA_CONST_ALIGN_MASK
+#endif
+#ifdef INITGUID
+#error "/workspace/Odyssey/src/third_party/libwebrtc/modules/audio_processing/three_band_filter_bank.cc defines INITGUID, so it cannot be built in unified mode."
+#undef INITGUID
+#endif

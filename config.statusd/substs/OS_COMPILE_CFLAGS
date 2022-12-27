@@ -1,0 +1,5 @@
+[
+    "-include",
+    "/workspace/Odyssey/mozilla-config.h",
+    "-DMOZILLA_CLIENT"
+]
