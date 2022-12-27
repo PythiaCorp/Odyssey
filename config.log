@@ -1,0 +1,1249 @@
+INFO: checking for a shell... 
+INFO: /usr/bin/sh
+INFO: checking for host system type... 
+INFO: x86_64-pc-linux-gnu
+INFO: checking for target system type... 
+INFO: x86_64-pc-linux-gnu
+INFO: checking whether cross compiling... 
+INFO: no
+INFO: checking for pkg_config... 
+DEBUG: pkg_config: Trying pkg-config
+INFO: /usr/bin/pkg-config
+INFO: checking for pkg-config version... 
+DEBUG: Executing: `/usr/bin/pkg-config --version`
+INFO: 0.29.1
+INFO: checking for yasm... 
+DEBUG: yasm: Trying yasm
+INFO: not found
+INFO: checking for the target C compiler... 
+DEBUG: _cc: Trying gcc
+INFO: /usr/bin/gcc
+INFO: checking whether the target C compiler can be used... 
+DEBUG: Creating `/tmp/conftest.lHtf8r.c` with content:
+DEBUG: | #if defined(_MSC_VER)
+DEBUG: | #if defined(__clang__)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #else
+DEBUG: | %COMPILER "msvc"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #endif
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | #  if !__cplusplus || __has_feature(cxx_alignof)
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #elif __STDC__
+DEBUG: | %STDC_VERSION 198900L
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #endif
+DEBUG: | #if __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #endif
+DEBUG: | #if _MSC_VER || __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/usr/bin/gcc -E /tmp/conftest.lHtf8r.c`
+DEBUG: COMPILER = gcc
+DEBUG: VERSION = 9.4.0
+DEBUG: STDC_VERSION = 201710L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+DEBUG: Creating `/tmp/conftest.zDANAN.c` with content:
+DEBUG: | #if defined(_MSC_VER)
+DEBUG: | #if defined(__clang__)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #else
+DEBUG: | %COMPILER "msvc"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #endif
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | #  if !__cplusplus || __has_feature(cxx_alignof)
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #elif __STDC__
+DEBUG: | %STDC_VERSION 198900L
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #endif
+DEBUG: | #if __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #endif
+DEBUG: | #if _MSC_VER || __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -E /tmp/conftest.zDANAN.c`
+DEBUG: COMPILER = gcc
+DEBUG: VERSION = 9.4.0
+DEBUG: STDC_VERSION = 199901L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking the target C compiler version... 
+INFO: 9.4.0
+INFO: checking the target C compiler works... 
+DEBUG: Creating `/tmp/conftest.wHnP6H.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -c /tmp/conftest.wHnP6H.c`
+INFO: yes
+INFO: checking for the target C++ compiler... 
+DEBUG: _cxx: Trying /usr/bin/g++
+INFO: /usr/bin/g++
+INFO: checking whether the target C++ compiler can be used... 
+DEBUG: Creating `/tmp/conftest.6a93x2.cpp` with content:
+DEBUG: | #if defined(_MSC_VER)
+DEBUG: | #if defined(__clang__)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #else
+DEBUG: | %COMPILER "msvc"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #endif
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | #  if !__cplusplus || __has_feature(cxx_alignof)
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #elif __STDC__
+DEBUG: | %STDC_VERSION 198900L
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #endif
+DEBUG: | #if __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #endif
+DEBUG: | #if _MSC_VER || __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/usr/bin/g++ -E /tmp/conftest.6a93x2.cpp`
+DEBUG: COMPILER = gcc
+DEBUG: VERSION = 9.4.0
+DEBUG: cplusplus = 201402L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+DEBUG: Creating `/tmp/conftest.0cIh6B.cpp` with content:
+DEBUG: | #if defined(_MSC_VER)
+DEBUG: | #if defined(__clang__)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #else
+DEBUG: | %COMPILER "msvc"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #endif
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | #  if !__cplusplus || __has_feature(cxx_alignof)
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #elif __STDC__
+DEBUG: | %STDC_VERSION 198900L
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #endif
+DEBUG: | #if __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #endif
+DEBUG: | #if _MSC_VER || __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -E /tmp/conftest.0cIh6B.cpp`
+DEBUG: COMPILER = gcc
+DEBUG: VERSION = 9.4.0
+DEBUG: cplusplus = 201103L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking the target C++ compiler version... 
+INFO: 9.4.0
+INFO: checking the target C++ compiler works... 
+DEBUG: Creating `/tmp/conftest.ATz67o.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.ATz67o.cpp`
+INFO: yes
+INFO: checking for the host C compiler... 
+DEBUG: _host_cc: Trying /usr/bin/gcc
+INFO: /usr/bin/gcc
+INFO: checking whether the host C compiler can be used... 
+DEBUG: Creating `/tmp/conftest.Sm0_gJ.c` with content:
+DEBUG: | #if defined(_MSC_VER)
+DEBUG: | #if defined(__clang__)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #else
+DEBUG: | %COMPILER "msvc"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #endif
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | #  if !__cplusplus || __has_feature(cxx_alignof)
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #elif __STDC__
+DEBUG: | %STDC_VERSION 198900L
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #endif
+DEBUG: | #if __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #endif
+DEBUG: | #if _MSC_VER || __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -E /tmp/conftest.Sm0_gJ.c`
+DEBUG: COMPILER = gcc
+DEBUG: VERSION = 9.4.0
+DEBUG: STDC_VERSION = 199901L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking the host C compiler version... 
+INFO: 9.4.0
+INFO: checking the host C compiler works... 
+DEBUG: Creating `/tmp/conftest.21outw.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -c /tmp/conftest.21outw.c`
+INFO: yes
+INFO: checking for the host C++ compiler... 
+DEBUG: _host_cxx: Trying /usr/bin/g++
+INFO: /usr/bin/g++
+INFO: checking whether the host C++ compiler can be used... 
+DEBUG: Creating `/tmp/conftest.M3Nlw5.cpp` with content:
+DEBUG: | #if defined(_MSC_VER)
+DEBUG: | #if defined(__clang__)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #else
+DEBUG: | %COMPILER "msvc"
+DEBUG: | %VERSION _MSC_FULL_VER
+DEBUG: | #endif
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | #  if !__cplusplus || __has_feature(cxx_alignof)
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #elif __STDC__
+DEBUG: | %STDC_VERSION 198900L
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #endif
+DEBUG: | #if __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #endif
+DEBUG: | #if _MSC_VER || __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -E /tmp/conftest.M3Nlw5.cpp`
+DEBUG: COMPILER = gcc
+DEBUG: VERSION = 9.4.0
+DEBUG: cplusplus = 201103L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking the host C++ compiler version... 
+INFO: 9.4.0
+INFO: checking the host C++ compiler works... 
+DEBUG: Creating `/tmp/conftest.etHKa1.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.etHKa1.cpp`
+INFO: yes
+INFO: checking for 64-bit OS... 
+DEBUG: Creating `/tmp/conftest.pcY0za.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | static_assert(sizeof(void *) == 8, "")
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.pcY0za.cpp`
+INFO: yes
+INFO: checking for stdint.h... 
+DEBUG: Creating `/tmp/conftest.iIZDGZ.cpp` with content:
+DEBUG: | #include <stdint.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.iIZDGZ.cpp`
+INFO: yes
+INFO: checking for inttypes.h... 
+DEBUG: Creating `/tmp/conftest.fdEWd4.cpp` with content:
+DEBUG: | #include <inttypes.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.fdEWd4.cpp`
+INFO: yes
+INFO: checking for malloc.h... 
+DEBUG: Creating `/tmp/conftest.FPOVaQ.cpp` with content:
+DEBUG: | #include <malloc.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.FPOVaQ.cpp`
+INFO: yes
+INFO: checking for alloca.h... 
+DEBUG: Creating `/tmp/conftest.Uxcpsz.cpp` with content:
+DEBUG: | #include <alloca.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.Uxcpsz.cpp`
+INFO: yes
+INFO: checking for sys/byteorder.h... 
+DEBUG: Creating `/tmp/conftest.ZpXwmf.cpp` with content:
+DEBUG: | #include <sys/byteorder.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.ZpXwmf.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | /tmp/conftest.ZpXwmf.cpp:1:10: fatal error: sys/byteorder.h: No such file or directory
+DEBUG: |     1 | #include <sys/byteorder.h>
+DEBUG: |       |          ^~~~~~~~~~~~~~~~~
+DEBUG: | compilation terminated.
+INFO: no
+INFO: checking for getopt.h... 
+DEBUG: Creating `/tmp/conftest.51Uh3r.cpp` with content:
+DEBUG: | #include <getopt.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.51Uh3r.cpp`
+INFO: yes
+INFO: checking for unistd.h... 
+DEBUG: Creating `/tmp/conftest.gDr1Ch.cpp` with content:
+DEBUG: | #include <unistd.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.gDr1Ch.cpp`
+INFO: yes
+INFO: checking for nl_types.h... 
+DEBUG: Creating `/tmp/conftest.1g6Mk7.cpp` with content:
+DEBUG: | #include <nl_types.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.1g6Mk7.cpp`
+INFO: yes
+INFO: checking for cpuid.h... 
+DEBUG: Creating `/tmp/conftest.yt77dK.cpp` with content:
+DEBUG: | #include <cpuid.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.yt77dK.cpp`
+INFO: yes
+INFO: checking for sys/statvfs.h... 
+DEBUG: Creating `/tmp/conftest.e1IQJY.cpp` with content:
+DEBUG: | #include <sys/statvfs.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.e1IQJY.cpp`
+INFO: yes
+INFO: checking for sys/statfs.h... 
+DEBUG: Creating `/tmp/conftest.oR6Jp6.cpp` with content:
+DEBUG: | #include <sys/statfs.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.oR6Jp6.cpp`
+INFO: yes
+INFO: checking for sys/vfs.h... 
+DEBUG: Creating `/tmp/conftest._wGvSO.cpp` with content:
+DEBUG: | #include <sys/vfs.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest._wGvSO.cpp`
+INFO: yes
+INFO: checking for sys/mount.h... 
+DEBUG: Creating `/tmp/conftest.0bos0y.cpp` with content:
+DEBUG: | #include <sys/mount.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.0bos0y.cpp`
+INFO: yes
+INFO: checking for sys/quota.h... 
+DEBUG: Creating `/tmp/conftest.xWNBBB.cpp` with content:
+DEBUG: | #include <sys/quota.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.xWNBBB.cpp`
+INFO: yes
+INFO: checking for linux/quota.h... 
+DEBUG: Creating `/tmp/conftest.DwkND5.cpp` with content:
+DEBUG: | #include <sys/socket.h>
+DEBUG: | #include <linux/quota.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.DwkND5.cpp`
+INFO: yes
+INFO: checking for linux/if_addr.h... 
+DEBUG: Creating `/tmp/conftest.A4EYFP.cpp` with content:
+DEBUG: | #include <sys/socket.h>
+DEBUG: | #include <linux/if_addr.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.A4EYFP.cpp`
+INFO: yes
+INFO: checking for linux/rtnetlink.h... 
+DEBUG: Creating `/tmp/conftest.QcuR4h.cpp` with content:
+DEBUG: | #include <sys/socket.h>
+DEBUG: | #include <linux/rtnetlink.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.QcuR4h.cpp`
+INFO: yes
+INFO: checking for sys/queue.h... 
+DEBUG: Creating `/tmp/conftest.Mt5lZu.cpp` with content:
+DEBUG: | #include <sys/queue.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.Mt5lZu.cpp`
+INFO: yes
+INFO: checking for sys/types.h... 
+DEBUG: Creating `/tmp/conftest.esjEPm.cpp` with content:
+DEBUG: | #include <sys/types.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.esjEPm.cpp`
+INFO: yes
+INFO: checking for netinet/in.h... 
+DEBUG: Creating `/tmp/conftest.8r4OBE.cpp` with content:
+DEBUG: | #include <netinet/in.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.8r4OBE.cpp`
+INFO: yes
+INFO: checking for byteswap.h... 
+DEBUG: Creating `/tmp/conftest.5V2L8p.cpp` with content:
+DEBUG: | #include <byteswap.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.5V2L8p.cpp`
+INFO: yes
+INFO: checking for linux/perf_event.h... 
+DEBUG: Creating `/tmp/conftest.XBED9k.cpp` with content:
+DEBUG: | #include <linux/perf_event.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.XBED9k.cpp`
+INFO: yes
+INFO: checking for perf_event_open system call... 
+DEBUG: Creating `/tmp/conftest.dzQD3D.cpp` with content:
+DEBUG: | #include <asm/unistd.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | return sizeof(__NR_perf_event_open);
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -c /tmp/conftest.dzQD3D.cpp`
+INFO: yes
+INFO: checking whether the C compiler supports -Wclass-varargs... 
+DEBUG: Creating `/tmp/conftest.Qywppx.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -Werror -Wclass-varargs -c /tmp/conftest.Qywppx.c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | gcc: error: unrecognized command line option ‘-Wclass-varargs’; did you mean ‘-Wno-varargs’?
+INFO: no
+INFO: checking whether the C++ compiler supports -Wclass-varargs... 
+DEBUG: Creating `/tmp/conftest.s3GqL7.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wclass-varargs -c /tmp/conftest.s3GqL7.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | g++: error: unrecognized command line option ‘-Wclass-varargs’; did you mean ‘-Wno-varargs’?
+INFO: no
+INFO: checking whether the C compiler supports -Wloop-analysis... 
+DEBUG: Creating `/tmp/conftest.FnMKI_.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -Werror -Wloop-analysis -c /tmp/conftest.FnMKI_.c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | gcc: error: unrecognized command line option ‘-Wloop-analysis’
+INFO: no
+INFO: checking whether the C++ compiler supports -Wloop-analysis... 
+DEBUG: Creating `/tmp/conftest.LlI41l.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wloop-analysis -c /tmp/conftest.LlI41l.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | g++: error: unrecognized command line option ‘-Wloop-analysis’
+INFO: no
+INFO: checking whether the C++ compiler supports -Wc++11-compat-pedantic... 
+DEBUG: Creating `/tmp/conftest.pz0U9I.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wc++11-compat-pedantic -c /tmp/conftest.pz0U9I.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | g++: error: unrecognized command line option ‘-Wc++11-compat-pedantic’
+INFO: no
+INFO: checking whether the C++ compiler supports -Wc++14-compat... 
+DEBUG: Creating `/tmp/conftest.SkND7e.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wc++14-compat -c /tmp/conftest.SkND7e.cpp`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wc++14-compat-pedantic... 
+DEBUG: Creating `/tmp/conftest.lYB5JQ.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wc++14-compat-pedantic -c /tmp/conftest.lYB5JQ.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | g++: error: unrecognized command line option ‘-Wc++14-compat-pedantic’
+INFO: no
+INFO: checking whether the C++ compiler supports -Wc++1z-compat... 
+DEBUG: Creating `/tmp/conftest.Y4IQls.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wc++1z-compat -c /tmp/conftest.Y4IQls.cpp`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wimplicit-fallthrough... 
+DEBUG: Creating `/tmp/conftest.TEslj1.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wimplicit-fallthrough -c /tmp/conftest.TEslj1.cpp`
+INFO: yes
+INFO: checking whether the C compiler supports -Wstring-conversion... 
+DEBUG: Creating `/tmp/conftest.65SfYL.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -Werror -Wstring-conversion -c /tmp/conftest.65SfYL.c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | gcc: error: unrecognized command line option ‘-Wstring-conversion’; did you mean ‘-Wsign-conversion’?
+INFO: no
+INFO: checking whether the C++ compiler supports -Wstring-conversion... 
+DEBUG: Creating `/tmp/conftest.epnIvU.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wstring-conversion -c /tmp/conftest.epnIvU.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | g++: error: unrecognized command line option ‘-Wstring-conversion’; did you mean ‘-Wsign-conversion’?
+INFO: no
+INFO: checking whether the C compiler supports -Wthread-safety... 
+DEBUG: Creating `/tmp/conftest._gj_SI.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -Werror -Wthread-safety -c /tmp/conftest._gj_SI.c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | gcc: error: unrecognized command line option ‘-Wthread-safety’
+INFO: no
+INFO: checking whether the C++ compiler supports -Wthread-safety... 
+DEBUG: Creating `/tmp/conftest.P1lX2f.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wthread-safety -c /tmp/conftest.P1lX2f.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | g++: error: unrecognized command line option ‘-Wthread-safety’
+INFO: no
+INFO: checking whether the C++ compiler supports -Wno-inline-new-delete... 
+DEBUG: Creating `/tmp/conftest.3G78Ru.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Winline-new-delete -c /tmp/conftest.3G78Ru.cpp`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | g++: error: unrecognized command line option ‘-Winline-new-delete’
+INFO: no
+INFO: checking whether the C compiler supports -Wno-error=maybe-uninitialized... 
+DEBUG: Creating `/tmp/conftest.N_A778.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -Werror -Wno-error=maybe-uninitialized -c /tmp/conftest.N_A778.c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=maybe-uninitialized... 
+DEBUG: Creating `/tmp/conftest.KvpiyD.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wno-error=maybe-uninitialized -c /tmp/conftest.KvpiyD.cpp`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=deprecated-declarations... 
+DEBUG: Creating `/tmp/conftest.OZytz3.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -Werror -Wno-error=deprecated-declarations -c /tmp/conftest.OZytz3.c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=deprecated-declarations... 
+DEBUG: Creating `/tmp/conftest.JbyQ28.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wno-error=deprecated-declarations -c /tmp/conftest.JbyQ28.cpp`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=array-bounds... 
+DEBUG: Creating `/tmp/conftest.gfTZAC.c` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/gcc -std=gnu99 -Werror -Wno-error=array-bounds -c /tmp/conftest.gfTZAC.c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=array-bounds... 
+DEBUG: Creating `/tmp/conftest.ufWY2x.cpp` with content:
+DEBUG: | 
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/usr/bin/g++ -std=gnu++11 -Werror -Wno-error=array-bounds -c /tmp/conftest.ufWY2x.cpp`
+INFO: yes
+INFO: checking for pango >= 1.22.0 pangoft2 >= 1.22.0 pangocairo >= 1.22.0... 
+INFO: yes
+INFO: checking MOZ_PANGO_CFLAGS... 
+DEBUG: Executing: `/usr/bin/pkg-config --cflags 'pango >= 1.22.0 pangoft2 >= 1.22.0 pangocairo >= 1.22.0'`
+INFO: -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16
+INFO: checking MOZ_PANGO_LIBS... 
+DEBUG: Executing: `/usr/bin/pkg-config --libs 'pango >= 1.22.0 pangoft2 >= 1.22.0 pangocairo >= 1.22.0'`
+INFO: -lpangoft2-1.0 -lfontconfig -lfreetype -lpangocairo-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lharfbuzz -lcairo
+INFO: checking for fontconfig >= 2.7.0... 
+INFO: yes
+INFO: checking _FONTCONFIG_CFLAGS... 
+DEBUG: Executing: `/usr/bin/pkg-config --cflags 'fontconfig >= 2.7.0'`
+INFO: -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16
+INFO: checking _FONTCONFIG_LIBS... 
+DEBUG: Executing: `/usr/bin/pkg-config --libs 'fontconfig >= 2.7.0'`
+INFO: -lfontconfig -lfreetype
+INFO: checking for freetype2 >= 6.1.0... 
+INFO: yes
+INFO: checking _FT2_CFLAGS... 
+DEBUG: Executing: `/usr/bin/pkg-config --cflags 'freetype2 >= 6.1.0'`
+INFO: -I/usr/include/freetype2 -I/usr/include/libpng16
+INFO: checking _FT2_LIBS... 
+DEBUG: Executing: `/usr/bin/pkg-config --libs 'freetype2 >= 6.1.0'`
+INFO: -lfreetype
+INFO: checking for tar... 
+DEBUG: tar: Trying gnutar
+DEBUG: tar: Trying gtar
+DEBUG: tar: Trying tar
+INFO: /usr/bin/tar
+INFO: checking for unzip... 
+DEBUG: unzip: Trying unzip
+INFO: /usr/bin/unzip
+INFO: checking for zip... 
+DEBUG: zip: Trying zip
+INFO: /usr/bin/zip
+INFO: checking for the Mozilla API key... 
+INFO: no
+INFO: checking for the Google API key... 
+INFO: no
+INFO: checking for the Bing API key... 
+INFO: no
+INFO: checking for the Adjust SDK key... 
+INFO: no
+INFO: checking for awk... 
+DEBUG: awk: Trying gawk
+INFO: /usr/bin/gawk
+INFO: checking for perl... 
+DEBUG: perl: Trying perl5
+DEBUG: perl: Trying perl
+INFO: /usr/bin/perl
+INFO: checking for minimum required perl version >= 5.006... 
+DEBUG: Executing: `/usr/bin/perl -e 'print $]'`
+INFO: 5.030000
+INFO: checking for full perl installation... 
+INFO: yes
+INFO: checking for gmake... 
+DEBUG: gmake: Trying gmake
+DEBUG: gmake: Trying make
+INFO: /usr/bin/make
+INFO: checking for doxygen... 
+DEBUG: doxygen: Trying doxygen
+INFO: not found
+INFO: checking for xargs... 
+DEBUG: xargs: Trying xargs
+INFO: /usr/bin/xargs
+INFO: checking for rpmbuild... 
+DEBUG: rpmbuild: Trying rpmbuild
+INFO: /usr/bin/rpmbuild
+INFO: checking for autoconf... 
+ERROR: Could not find autoconf 2.13 at /home/linuxbrew/.linuxbrew/Cellar/autoconf213/2.13/bin/autoconf213
